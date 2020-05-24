@@ -1,0 +1,71 @@
+﻿<UserControl x:Class="SimpleCalculator.Controls.SimpleCalculatorControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:SimpleCalculator.Controls"
+             mc:Ignorable="d" 
+             d:DesignHeight="650" d:DesignWidth="800">
+    <Grid>
+    <Grid.ColumnDefinitions>
+      <ColumnDefinition />
+      <ColumnDefinition Width="Auto" />
+    </Grid.ColumnDefinitions>
+    <Grid>
+      <Grid.RowDefinitions>
+        <RowDefinition Height="Auto" />
+        <RowDefinition />
+      </Grid.RowDefinitions>
+      <TextBlock Style="{StaticResource mNumberDisplayTextBlockStyle}" Text="{Binding Path=Text, Mode=OneWay}" />
+      <Grid Grid.Row="1">
+        <Grid.RowDefinitions>
+          <RowDefinition />
+          <RowDefinition />
+          <RowDefinition />
+          <RowDefinition />
+          <RowDefinition />
+          <RowDefinition />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+          <ColumnDefinition />
+          <ColumnDefinition />
+          <ColumnDefinition />
+          <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <Button Grid.Row="0" Grid.Column="0" Style="{StaticResource mNumberButtonStyle}" Click="NumberButton_Click" Name="mButtonP" >%</Button>
+        <Button Grid.Row="0" Grid.Column="1" Style="{StaticResource mNumberButtonStyle}" Click="NumberButton_Click" Name="mButtonR" >1/x</Button>
+        <Button Grid.Row="0" Grid.Column="2" Style="{StaticResource mNumberButtonStyle}" Click="NumberButton_Click" Name="mButtonK" >C</Button>
+        <Button Grid.Row="0" Grid.Column="3" Style="{StaticResource mNumberButtonStyle}" Click="NumberButton_Click" Name="mButtonF" >←</Button>
+        <Button Grid.Row="1" Grid.Column="0" Style="{StaticResource mNumberButtonStyle}" Click="NumberButton_Click" Name="mButtonS" >x²</Button>
+        <Button Grid.Row="1" Grid.Column="1" Style="{StaticResource mNumberButtonStyle}" Click="NumberButton_Click" Name="mButtonT" >x³</Button>
+        <Button Grid.Row="1" Grid.Column="2" Style="{StaticResource mNumberButtonStyle}" Click="NumberButton_Click" Name="mButtonQ" >√x</Button>
+        <Button Grid.Row="1" Grid.Column="3" Style="{StaticResource mNumberButtonStyle}" Click="NumberButton_Click" Name="mButtonE" >÷</Button>
+        <Button Grid.Row="2" Grid.Column="0" Style="{StaticResource mNumberButtonStyle}" Click="NumberButton_Click" Name="mButton7" >7</Button>
+        <Button Grid.Row="2" Grid.Column="1" Style="{StaticResource mNumberButtonStyle}" Click="NumberButton_Click" Name="mButton8" >8</Button>
+        <Button Grid.Row="2" Grid.Column="2" Style="{StaticResource mNumberButtonStyle}" Click="NumberButton_Click" Name="mButton9" >9</Button>
+        <Button Grid.Row="2" Grid.Column="3" Style="{StaticResource mNumberButtonStyle}" Click="NumberButton_Click" Name="mButtonD" >×</Button>
+        <Button Grid.Row="3" Grid.Column="0" Style="{StaticResource mNumberButtonStyle}" Click="NumberButton_Click" Name="mButton4" >4</Button>
+        <Button Grid.Row="3" Grid.Column="1" Style="{StaticResource mNumberButtonStyle}" Click="NumberButton_Click" Name="mButton5" >5</Button>
+        <Button Grid.Row="3" Grid.Column="2" Style="{StaticResource mNumberButtonStyle}" Click="NumberButton_Click" Name="mButton6" >6</Button>
+        <Button Grid.Row="3" Grid.Column="3" Style="{StaticResource mNumberButtonStyle}" Click="NumberButton_Click" Name="mButtonC" >-</Button>
+        <Button Grid.Row="4" Grid.Column="0" Style="{StaticResource mNumberButtonStyle}" Click="NumberButton_Click" Name="mButton1" >1</Button>
+        <Button Grid.Row="4" Grid.Column="1" Style="{StaticResource mNumberButtonStyle}" Click="NumberButton_Click" Name="mButton2" >2</Button>
+        <Button Grid.Row="4" Grid.Column="2" Style="{StaticResource mNumberButtonStyle}" Click="NumberButton_Click" Name="mButton3" >3</Button>
+        <Button Grid.Row="4" Grid.Column="3" Style="{StaticResource mNumberButtonStyle}" Click="NumberButton_Click" Name="mButtonB" >+</Button>
+        <Button Grid.Row="5" Grid.Column="0" Style="{StaticResource mNumberButtonStyle}" Click="NumberButton_Click" Name="mButtonZ" >+/-</Button>
+        <Button Grid.Row="5" Grid.Column="1" Style="{StaticResource mNumberButtonStyle}" Click="NumberButton_Click" Name="mButton0" >0</Button>
+        <Button Grid.Row="5" Grid.Column="2" Style="{StaticResource mNumberButtonStyle}" Click="NumberButton_Click" Name="mButtonI" Content="{Binding Path=NumberDecimalSeparator, Mode=OneWay}" />
+        <Button Grid.Row="5" Grid.Column="3" Style="{StaticResource mNumberButtonStyle}" Click="NumberButton_Click" Name="mButtonA" >=</Button>
+
+      </Grid>
+    </Grid>
+    <Grid Grid.Column="1">
+      <Grid.RowDefinitions>
+        <RowDefinition Height="Auto" />
+        <RowDefinition />
+      </Grid.RowDefinitions>
+      <TextBlock Style="{StaticResource mHistoryTitleTextBlockStyle}" Text="{Binding Path=HistoryTitle, Mode=OneWay}" />
+      <ListBox Grid.Row="1" Style="{StaticResource mHistoryListBoxStyle}" ItemsSource="{Binding Path=HistoryListItemsSource, Mode=OneWay}" SelectedItem="{Binding Path=SelectedHistoryListItem}" />
+    </Grid>
+  </Grid>
+</UserControl>
